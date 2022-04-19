@@ -20,25 +20,23 @@
 
                     <p>
                         <label for="nome">Nome</label>
-                        <input id="nome" name="nome" required="required" type="text" />
+                        <input id="nome" name="nome"type="text" />
                     </p>
 
                     <p>
                         <label for="cidade">Cidade</label>
-                        <input id="cidade" name="cidade" required="required" type="text" />
+                        <input id="cidade" name="cidade"type="text" />
                     </p>
 
                     <p>
                         <label for="salHora">Salário por hora</label>
-                        <input id="salHora" name="salHora" required="required" type="number" />
+                        <input id="salHora" name="salHora"type="number" />
                     </p>
 
                     <p>
                         <label for="horasTrab">Horas trabalhadas</label>
-                        <input id="horasTrab" name="horasTrab" required="required" type="number" />
+                        <input id="horasTrab" name="horasTrab"type="number" />
                     </p>
-
-                    <form action=""></form>
                     <p>
                         <input type="submit" class="btns" value="Cadastrar" name="btnCadastrar">
                         <input type="submit" class="btns" value="Calcular Salário" name="btnCalcular">
@@ -57,7 +55,7 @@
     require_once "Funcionario.php";
     $funcionario = new Funcionario();
     
-    if(isset($_POST["btnCadastrar"]))
+    if(isset($_POST["btnCadastrar"]) && !empty($_POST['nome']))
     {
         $funcionario->setNome($_POST['nome']);
         $funcionario->setCidade($_POST['cidade']);
@@ -66,6 +64,8 @@
         $funcionario->setSalarioFinal($funcionario->calcularSalario());
 
         echo "<div class='container'><h3>Usuário Cadastrado com sucesso</h3><div>";
+    }else if(isset($_POST["btnCadastrar"])){
+        echo "Preencha o nome!";
     }
 
     if(isset($_POST["btnCalcular"]))
