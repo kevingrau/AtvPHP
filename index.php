@@ -144,7 +144,7 @@ input[type="submit"] {
 
         echo "<h3>Usuário Cadastrado com sucesso</h3>";
     }else if(isset($_POST["btnCadastrar"])){
-        echo "Preencha o nome!";
+        echo "<h3>Preencha os campos necessários!</h3>";
     }
 
     if(isset($_POST["btnCalcular"]))
@@ -152,7 +152,7 @@ input[type="submit"] {
         $funcionario->setSalHora($_POST['salHora']);
         $funcionario->setHorasTrab($_POST['horasTrab']);
         $salario = $funcionario->calcularSalario();
-        echo "<h3>Salário do Funcionário: <span>R$ $salario</span></h3>";
+        echo "<h3>Salário do Funcionário: R$ $salario</h3>";
     }
 
     if(isset($_POST["btnMostrar"]))
@@ -172,7 +172,7 @@ input[type="submit"] {
         $funcionario->setHorasTrab($_POST['horasTrab']);
         $funcionario->setSalarioFinal($funcionario->calcularSalario());
         $aumento = $funcionario->darAumento($_POST['aumento']);
-        echo "<h3>Salário com aumento: <span>R$ $aumento</span><h3>";
+        echo "<h3>Salário com aumento: R$ $aumento<h3>";
     }
 
 ?>
